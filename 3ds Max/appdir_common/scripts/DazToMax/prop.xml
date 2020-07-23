@@ -1,0 +1,23 @@
+<props>
+  <prop propDaz="Base_Color,Diffuse_Color,Metal_Color" 				propVray="Diffuse" 							propCorona="colorDiffuse" 				propArnold="base_color" 				propStandard="Base_Color" 			propPhysical="base_Color"	/>
+  <prop propDaz="Base_Color_Map,Diffuse_Color_Map" 					propVray="texmap_diffuse" 					propCorona="texmapDiffuse" 				propArnold="base_color_shader" 			propStandard="Base_Color_Map"		propPhysical="base_color_map"	 />
+  <prop propDaz="Glossy_Reflectivity,Glossy_Layered_Weight,Specular_Strength" 			propVray="Reflection" 						propCorona="Reflection" 				propArnold="specular_color" 			propStandard="Reflection" 			propPhysical="reflectivity"	/>
+  <prop propDaz="Metallicity_Map" 									propVray="texmap_reflection" 				propCorona="texmapIor" 					propArnold="Metalness_shader" 			propStandard="Metallicity_Map" 		propPhysical="refl_color_map"	/>
+  <prop propDaz="Glossy_Roughness,Glossiness,Specular_Glossiness" 	propVray="reflection_glossiness" 			propCorona="reflectionGlossiness" 		propArnold="metalness" 					propStandard="Glossy_Roughness" 	propPhysical="roughness"	/>
+  <prop propDaz="Glossy_Roughness_Map,Glossiness_Map" 				propVray="texmap_reflectionGlossiness" 		propCorona="texmapReflectionGlossiness" propArnold="specular_color_shader" 		propStandard="Glossy_Roughness_Map" propPhysical="roughness_map"	/>
+  <prop propDaz="Base_Bump,Bump_Strength" 							propVray="bump_map_multiplier" 				propCorona="additionalBumpStrength" 	propArnold="input" 						propStandard="Base_Bump" 			propPhysical="bump_height"	/>
+  <prop propDaz="Base_Bump_Map,Bump_Strength_Map" 					propVray="bump_map" 						propCorona="additionalBump" 			propArnold="input_shader" 				propStandard="bumpMap" 				propPhysical="bump_map_shader"	/>
+  <prop propDaz="Normal_Map_Strength,Normal_Map"					propVray="normal_map_multiplier" 			propCorona="multiplier" 				propArnold="normal" 					propStandard="normal" 				propPhysical="normal"	/>
+  <prop propDaz="Normal_Strength_Map" 								propVray="normal_map" 						propCorona="normal_map" 				propArnold="normal" 					propStandard="Normap_Map" 			propPhysical="normal_shader"	/>
+  <prop propDaz="Refraction_Weight" 								propVray="Refraction" 						propCorona="Refraction" 				propArnold="transmission_color"			propStandard="Opacity" 				propPhysical="transparency"	/>
+  <prop propDaz="Opacity_Strength" 									propVray="Refraction1" 						propCorona="Refraction1" 				propArnold="transmission_color1" 		propStandard="Opacity1" 			propPhysical="transparency1"	/>
+  <prop propDaz="Refraction_Weight_Map" 							propVray="texmap_refraction" 				propCorona="texmapRefraction" 			propArnold="transmission_color_shader"	propStandard="Refraction_Weight_Map" propPhysical="transparency_map"	/>
+  <prop propDaz="Cutout_Opacity_Map,Opacity_Strength_Map" 			propVray="texmap_opacity" 					propCorona="texmap_opacity" 			propArnold="opacity_shader" 			propStandard="opacityMap" 			propPhysical="cutout_map"	/>
+  <prop propDaz="Refraction_Index" 									propVray="refraction_ior" 					propCorona="trans_ior" 					propArnold="trans_ior" 					propStandard="trans_ior" 			propPhysical="trans_ior"	/>
+  <prop propDaz="Refraction_Color" 									propVray="trans_color" 						propCorona="trans_color" 					propArnold="trans_color" 					propStandard="trans_color" 			propPhysical="trans_color"	/>
+  <prop propDaz="Horizontal_Tiles" 									propVray="coords_U_Tiling" 					propCorona="coords_U_Tiling" 			propArnold="coords_U_Tiling" 			propStandard="coords_U_Tiling" 			propPhysical="coords_U_Tiling"	/>
+  <prop propDaz="Vertical_Tiles" 									propVray="coords_V_Tiling" 					propCorona="coords_V_Tiling" 			propArnold="coords_V_Tiling" 			propStandard="coords_V_Tiling" 			propPhysical="coords_V_Tiling"	/>
+  <prop propDaz="Horizontal_Offset" 								propVray="coords_U_Offset" 					propCorona="coords_U_Offset" 			propArnold="coords_U_Offset" 			propStandard="coords_U_Offset" 			propPhysical="coords_U_Offset"	/>
+  <prop propDaz="Vertical_Offset" 									propVray="coords_V_Offset" 					propCorona="coords_V_Offset" 			propArnold="coords_V_Offset" 			propStandard="coords_V_Offset" 			propPhysical="coords_V_Offset"	/>
+  
+  </props>

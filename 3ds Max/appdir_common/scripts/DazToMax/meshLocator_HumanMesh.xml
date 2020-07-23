@@ -1,0 +1,41 @@
+<config>
+	<bone name="Human" 		syncpos="0"	source="Base Human" 			target="Human_Builder001"	size="0.1"		color="color 0 255 0"	vertice="0,0"/>
+	<bone name="Pelvis" 	syncpos="1"	source="Base HumanPelvis" 		target="Pelvis"				size="5"		color="color 255 0 255" vertice="489,987"/>
+	<bone name="Spine01" 	syncpos="1"	source="Base HumanSpine1" 		target="Spine"				size="8"		color="color 255 0 255" vertice="465,996"/>
+	<bone name="Spine02" 	syncpos="1"	source="Base HumanSpine2" 		target="Spine1"				size="8"		color="color 255 0 255" vertice="449,1028"/>
+	<bone name="Spine03" 	syncpos="1"	source="Base HumanSpine3" 		target="Spine2"				size="8"		color="color 255 0 255" vertice="334,1025"/>
+	<bone name="Spine04" 	syncpos="1"	source="Base HumanSpine4" 		target="Spine3"				size="8"		color="color 255 0 255" vertice="326,1002"/>
+	<bone name="Ribcage"	syncpos="1"	source="Base HumanRibcage" 		target="Neck"				size="8"		color="color 255 0 255" vertice="100,282"/>
+	<bone name="Neck" 		syncpos="1"	source="Base HumanNeck" 		target="Neck"				size="8"		color="color 255 0 255" vertice="100,282"/>
+	<bone name="Head" 		syncpos="1"	source="Base HumanHead" 		target="Head"				size="8"		color="color 255 0 255" vertice="153,1212"/>
+	<bone name="Head1" 		syncpos="1"	source="" 						target="HeadNub"			size="3"		color="color 255 255 0" vertice="277,1316"/>
+	<bone name="LPFoot" 	syncpos="0"	source="Base HumanLPlatform" 	target="L Foot"				size="2"		color="color 0 255 0"	vertice="729,736"/>
+	<bone name="LLegUp" 	syncpos="4"	source="Base HumanLThigh" 		target="L Thigh"			size="2"		color="color 87 225 87" vertice="508,548"/>
+	<bone name="LLeg" 		syncpos="4"	source="Base HumanLCalf" 		target="L Calf"				size="2"		color="color 87 225 87" vertice="655,662"/>
+	<bone name="LFoot" 		syncpos="4"	source="Base HumanLFoot" 		target="L Foot"				size="2"		color="color 87 225 87" vertice="729,740"/>
+	<bone name="LToe" 		syncpos="4"	source="Base HumanLToe1" 		target="L Toe0"				size="0.5"		color="color 87 225 87" vertice="746,776"/>	
+	<bone name="LToe1" 		syncpos="5"	source="_xx_" 					target="L Toe0Nub"			size="0.5"		color="color 255 225 0" vertice="791,792"/>	
+	<bone name="LShoulder"	syncpos="2"	source="Base HumanLCollarbone" 	target="L Clavicle"			size="2"		color="color 87 225 87" vertice="210,218"/>
+	<bone name="LArm" 		syncpos="4"	source="Base HumanLUpperArm" 	target="L UpperArm"			size="2"		color="color 87 225 87" vertice="303,318"/>
+	<bone name="LForeArm"	syncpos="4"	source="Base HumanLForeArm" 	target="L Forearm"			size="2"		color="color 87 225 87" vertice="412,421"/>
+	<bone name="LPalm" 		syncpos="4"	source="Base HumanLPalm" 		target="L Hand"				size="2"		color="color 87 225 87" vertice="825,975"/>
+	<bone name="LThumb1"	syncpos="4"	source="Base HumanLDigit11" 	target="L Finger0"			size="0.5"		color="color 0 255 0"	vertice="847,851"/>
+	<bone name="LThumb2"	syncpos="4"	source="Base HumanLDigit12" 	target="L Finger01"			size="0.5"		color="color 0 255 0"	vertice="834,855"/>
+	<bone name="LThumb3"	syncpos="5"	source="_xx_" 					target="L Finger02"			size="0.5"		color="color 255 255 0" vertice="862,863"/>
+	<bone name="LIndex1"	syncpos="4"	source="Base HumanLDigit21" 	target="L Finger1"			size="0.5"		color="color 0 255 0"	vertice="891,911"/>
+	<bone name="LIndex2"	syncpos="4"	source="Base HumanLDigit22" 	target="L Finger11"			size="0.5"		color="color 0 255 0"   vertice="906,914"/>
+	<bone name="LIndex3"	syncpos="4"	source="Base HumanLDigit23" 	target="L Finger12"			size="0.5"		color="color 0 255 0"   vertice="923,929"/>
+	<bone name="LIndex4"	syncpos="5"	source="_xx_" 					target="L Finger13"			size="0.5"		color="color 255 255 0" vertice="945,951"/>
+	<bone name="LMiddle1"	syncpos="4"	source="Base HumanLDigit31" 	target="L Finger2"			size="0.5"		color="color 0 255 0"   vertice="890,893"/>
+	<bone name="LMiddle2"	syncpos="4"	source="Base HumanLDigit32" 	target="L Finger21"			size="0.5"		color="color 0 255 0"   vertice="884,887"/>
+	<bone name="LMiddle3"	syncpos="4"	source="Base HumanLDigit33" 	target="L Finger22"			size="0.5"		color="color 0 255 0"   vertice="877,881"/>
+	<bone name="LMiddle4"	syncpos="5"	source="_xx_" 					target="L Finger23"			size="0.5"		color="color 255 255 0" vertice="873,880"/>
+	<bone name="LRing1"		syncpos="4"	source="Base HumanLDigit41" 	target="L Finger3"			size="0.5"		color="color 0 255 0"   vertice="899,904"/>
+	<bone name="LRing2"		syncpos="4"	source="Base HumanLDigit42" 	target="L Finger31"			size="0.5"		color="color 0 255 0"   vertice="897,902"/>
+	<bone name="LRing3"		syncpos="4"	source="Base HumanLDigit43" 	target="L Finger32"			size="0.5"		color="color 0 255 0"   vertice="939,942"/>
+	<bone name="LRing4"		syncpos="5"	source="_xx_" 					target="L Finger33"			size="0.5"		color="color 255 255 0" vertice="961,964"/>
+	<bone name="LPinky1"	syncpos="4"	source="Base HumanLDigit51"		target="L Finger4"			size="0.5"		color="color 0 255 0"   vertice="898,919"/>
+	<bone name="LPinky2"	syncpos="4"	source="Base HumanLDigit52"		target="L Finger41"			size="0.5"		color="color 0 255 0"   vertice="915,921"/>
+	<bone name="LPinky3"	syncpos="4"	source="Base HumanLDigit53"		target="L Finger42"			size="0.5"		color="color 0 255 0"   vertice="930,935"/>
+	<bone name="LPinky4"	syncpos="5"	source="_xx_"					target="L Finger43"			size="0.5"		color="color 255 255 0" vertice="952,957"/>
+</config>
