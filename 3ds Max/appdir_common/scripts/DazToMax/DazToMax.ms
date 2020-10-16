@@ -1,4 +1,7 @@
 dotNet.loadAssembly "system.xml"
+global dazto3dmax_latestimport
+global dazto3dmax_latestclipboard
+
 global selectedObject = undefined
 global listWeight = #()
 global listBoneSource = #()
@@ -8,15 +11,15 @@ global listBoneTarget1 =#()
 global listXML = #(#("rThighTwist,rThighBend,rShin,chestLower,abdomenUpper","objguides_Genesis3Female.xml"),#("abdomen,abdomen2,chest","objguides_Genesis2Male.xml"),#("SENTINEL_177853,abdomen","objguides_SENTINEL_177853.xml"))
 
 --global d2mFbxPath = "C:\TEMP3D\d2m.fbx"
-global d2mFbxPath = "C:\\TEMP3D\\DazToMax.fbx"
-global d2mDaePath = "C:\\TEMP3D\\DazToMax.dae"
+global d2mFbxPath = "C:\\TEMP3D\\DazToFile.fbx"
+global d2mDaePath = "C:\\TEMP3D\\DazToFile.dae"
 	
 global d2mXmlDoc = dotNetObject "system.xml.XmlDocument"
 global d2mConfigpath = getfilenamePath (getThisScriptFilename())
-global d2mLogo = openBitmap (d2mConfigpath+"d2m.png")
+global d2mLogo = openBitmap (d2mConfigpath+"d2m.jpg")
 	
 	
-	global file_xml = "C:\\TEMP3D\\DazToMax.xml"
+	global file_xml = "C:\\TEMP3D\\DazToFile.xml"
 	global propDaz 
 	global propVray 
 	global propCorona 
@@ -1337,11 +1340,12 @@ function syncCATXML arrInput baseTarget isArmUp thumbMode =
 
 
 try(destroyDialog rConverter )catch()	
-rollout rConverter "DazToMax v1.00 b0709" height:470 width:400
+rollout rConverter "DazToMax v1.00b" height:470 width:400
 (
 	imgTag ikmaxlogo "" width:400  height:90 bitmap:d2mLogo enabled:false border:false pos:[0 ,0]
 	local moveOne = -53
 	label 'lbl3' "If importing from Temp folder, save to another location (!)" pos:[62,224+moveOne] width:288 height:16 align:#left
+	timer clock "testClock" interval:500 --tick once a second
 	button btnAutoImport "Auto-Import" pos:[10,150+moveOne] width:379 height:60 align:#left
 	button btnSaveScene "Save Scene with Textures..." pos:[10,244+moveOne] width:379 height:60 align:#left
 	checkbox cbShowReminder "Show me a reminder after importing from Temp folder." pos:[60,309+moveOne] width:280 height:16 align:#left
@@ -1363,7 +1367,7 @@ rollout rConverter "DazToMax v1.00 b0709" height:470 width:400
 	---------------------------------
 	label 'lbl4' "Copyright (c) 2020. All rights reserved." pos:[115,497+moveOne] width:250 height:24 align:#left
 	button btnHelp "?" pos:[360,492+moveOne] width:24 height:24 align:#left
-	--checkbox chkMerge "Merge Import" checked:false visible:true pos:[10,445] visible:false
+	checkbox chkMerge "Merge Import" checked:false visible:true pos:[10,445] visible:false
 	--checkbox chkBump "Use Normal only" checked:false visible:true pos:[10,450]
 
 	checkbox chkMorph "only keep figure morphs" checked:true visible:false
@@ -2658,14 +2662,14 @@ rollout rConverter "DazToMax v1.00 b0709" height:470 width:400
 		)
 		actionMan.executeAction 0 "63545"
 	)
-	on btnAutoImport pressed do
+	function autoImport = 
 	(
 		-- local temp = (yesNoCancelBox  "The scene will be replaced.\nSave changes?")
 		-- if temp == #yes then saveMaxFile maxfilename
 		-- if temp == #cancel  then return true
-		-- if chkMerge.checked == false then
-		if queryBox "This will replace current scene, are you sure to continue?" title:"DazToMax" == false then
-			return true
+		if chkMerge.checked == false then
+			if queryBox "This will replace current scene, are you sure to continue?" title:"DazToMax" == false then
+				return true
 	
 		local xmlDoc = dotNetObject "system.xml.xmlDocument"
 		xmlDoc.load file_xml
@@ -2675,8 +2679,8 @@ rollout rConverter "DazToMax v1.00 b0709" height:470 width:400
 		--return true
 		local isFBX = (getFileNameType filename) == ".fbx"
 	
-		--if chkMerge.checked == false then
-		--	resetMaxFile #noprompt 
+		if chkMerge.checked == false then
+			resetMaxFile #noprompt 
 		if isFBX then
 		(
 			importFBXFiles()
@@ -3036,6 +3040,10 @@ rollout rConverter "DazToMax v1.00 b0709" height:470 width:400
 		if cbShowReminder.checked then
 			messagebox "Remember to save scene with textures"	
 	)
+	on btnAutoImport pressed do
+	(
+		autoImport()
+	)
 
 	on btnLoadClip pressed do
 	if (classof $ == CATParent) then
@@ -3114,8 +3122,37 @@ rollout rConverter "DazToMax v1.00 b0709" height:470 width:400
 		--actionMan.executeAction 0 "63545"
 		
 	)
+	on clock tick do
+	(
+		val = (dotnetclass "System.Windows.Forms.Clipboard").GetText()
+		if val != dazto3dmax_latestclipboard then
+		(
+			dazto3dmax_latestclipboard = val
+			--trimleft 
+			local t = getLocalTime()
+			local delta = t[5]*3600+t[6]*60+t[7]- dazto3dmax_latestimport[5]*3600-dazto3dmax_latestimport[6]*60-dazto3dmax_latestimport[7]
+			--print ("clipboard: "+val)
+			if delta >= 3 then
+			(
+				print ("ready to import")
+				val1 = filterString val "|"
+				if val1.count == 2 and val1[1] == "DazStudio" and val1[2] == "Exporter" then
+				(
+					if doesFileExist file_xml then
+					(
+						--dazto3dmax_latestimport = t
+						--sleep 0.5
+						autoImport()
+						--importfile file_fbx #noPrompt using:FBXIMP
+					)
+				)
+			)
+		)
+	)	
 	on rConverter open do
 	(
+		dazto3dmax_latestimport = getLocalTime()
+		dazto3dmax_latestclipboard = (dotnetclass "System.Windows.Forms.Clipboard").GetText()		
 		loadXML()
 		--loadImage ikmaxlogo (d2mConfigpath+"d2m.jpg")
 		
