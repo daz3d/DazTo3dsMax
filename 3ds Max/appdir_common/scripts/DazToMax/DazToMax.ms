@@ -1,3 +1,4 @@
+--19 Oct 20
 dotNet.loadAssembly "system.xml"
 global selectedObject = undefined
 global listWeight = #()
@@ -1337,7 +1338,7 @@ function syncCATXML arrInput baseTarget isArmUp thumbMode =
 
 
 try(destroyDialog rConverter )catch()	
-rollout rConverter "DazToMax v1.00 b0709" height:470 width:400
+rollout rConverter "DazToMax v1.00" height:470 width:400
 (
 	imgTag ikmaxlogo "" width:400  height:90 bitmap:d2mLogo enabled:false border:false pos:[0 ,0]
 	local moveOne = -53
@@ -2664,6 +2665,13 @@ rollout rConverter "DazToMax v1.00 b0709" height:470 width:400
 		-- if temp == #yes then saveMaxFile maxfilename
 		-- if temp == #cancel  then return true
 		-- if chkMerge.checked == false then
+		filename = @"C:\TEMP3D\DazToMax.xml"
+		print (doesFileExist filename)
+		if (doesFileExist filename) == false then
+		(
+			messageBox "Nothing to import.\nPlease export from Daz Studio first." title:"DazToMax"
+			return true
+		)
 		if queryBox "This will replace current scene, are you sure to continue?" title:"DazToMax" == false then
 			return true
 	
