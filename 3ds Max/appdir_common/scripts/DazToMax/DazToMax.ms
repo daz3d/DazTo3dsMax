@@ -1337,7 +1337,7 @@ function syncCATXML arrInput baseTarget isArmUp thumbMode =
 
 
 try(destroyDialog rConverter )catch()	
-rollout rConverter "DazToMax v1.00 b0709" height:470 width:400
+rollout rConverter "DazToMax v1.1" height:470 width:400
 (
 	imgTag ikmaxlogo "" width:400  height:90 bitmap:d2mLogo enabled:false border:false pos:[0 ,0]
 	local moveOne = -53
@@ -1365,8 +1365,8 @@ rollout rConverter "DazToMax v1.00 b0709" height:470 width:400
 	button btnHelp "?" pos:[360,492+moveOne] width:24 height:24 align:#left
 	--checkbox chkMerge "Merge Import" checked:false visible:true pos:[10,445] visible:false
 	--checkbox chkBump "Use Normal only" checked:false visible:true pos:[10,450]
-
-	checkbox chkMorph "only keep figure morphs" checked:true visible:false
+	--disabled chkMorph to deal with new Morphs missing alias in morphs
+	checkbox chkMorph "only keep figure morphs" checked:false visible:false
 	--filterString 
 
 	function setBitmapShaderValue subshader uTile vTile uOffset vOffset = 
@@ -2603,6 +2603,7 @@ rollout rConverter "DazToMax v1.00 b0709" height:470 width:400
 									print vTile
 									print hOffset
 									print vOffset
+									
 									try (
 										mat.diffuseMap = setBitmapShaderValue mat.diffuseMap uTile vTile uOffset vOffset											
 									) catch()
@@ -2711,7 +2712,8 @@ rollout rConverter "DazToMax v1.00 b0709" height:470 width:400
 
 		
 		--actionMan.executeAction -844228238 "13"  -- Viewport Lighting and Shadows: Standard
-		morphRenamer()
+		--removing hard code issue for renaming
+		--morphRenamer()
 		--return true
 		try(destroyDialog rPBar )catch()	
 		createDialog rPBar
